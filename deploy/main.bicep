@@ -30,6 +30,7 @@ module silo 'container-app.bicep' = {
     repositoryImage: silo_image
     allowExternalIngress: false
     allowInternalIngress: true
+    maxReplicas: 1
     envVars : [
       {
         name: 'ASPNETCORE_ENVIRONMENT'
@@ -54,6 +55,7 @@ module client 'container-app.bicep' = {
     repositoryImage: client_image
     allowExternalIngress: true
     allowInternalIngress: false
+    maxReplicas: 1
     envVars : [
       {
         name: 'ASPNETCORE_ENVIRONMENT'
