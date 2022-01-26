@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "OrleansOnContainerApps.Silo": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ORLEANS_AZURE_STORAGE_CONNECTION_STRING": ""
+      },
+      "applicationUrl": "http://localhost:5021",
+      "dotnetRunMessages": true
+    }
+  }
+}

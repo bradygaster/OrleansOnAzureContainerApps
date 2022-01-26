@@ -1,0 +1,23 @@
+version: '3.4' 
+
+services:
+
+  silo:
+    image: "${acrLoginServer}/silo:latest"
+    #image: "silo:latest"
+    build:
+      context: .
+      dockerfile: OrleansOnContainerApps.Silo/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    hostname: silo
+
+  client:
+    image: "${acrLoginServer}/client:latest"
+    #image: "client:latest"
+    build:
+      context: .
+      dockerfile: OrleansOnContainerApps.Client/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    hostname: client
