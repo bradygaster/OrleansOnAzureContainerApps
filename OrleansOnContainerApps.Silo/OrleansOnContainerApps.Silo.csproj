@@ -8,10 +8,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\Orleans.Azure.Infrastructure\Orleans.Azure.Infrastructure.csproj" />
 		<ProjectReference Include="..\OrleansOnContainerApps.Abstractions\OrleansOnContainerApps.Abstractions.csproj" />
 		<ProjectReference Include="..\OrleansOnContainerApps.Grains\OrleansOnContainerApps.Grains.csproj" />
