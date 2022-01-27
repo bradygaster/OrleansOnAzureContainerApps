@@ -11,6 +11,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     hostname: silo
+    ports:
+      - 5000:80
 
   client:
     image: "${acrLoginServer}/client:latest"
@@ -21,3 +23,17 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     hostname: client
+    ports:
+      - 5001:80
+
+  dashboard:
+    image: "${acrLoginServer}/dashboard:latest"
+    #image: "dashboard:latest"
+    build:
+      context: .
+      dockerfile: OrleansOnContainerApps.Dashboard/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    hostname: dashboard
+    ports:
+      - 5002:80
