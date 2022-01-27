@@ -2,6 +2,7 @@ param location string = resourceGroup().location
 
 param silo_image string
 param client_image string
+param dashboard_image string
 param registry string
 param registryUsername string
 
@@ -69,3 +70,27 @@ module client 'container-app.bicep' = {
   }
 }
 
+module dashboard 'container-app.bicep' = {
+  name: 'dashboard'
+  params: {
+    name: 'dashboard'
+    containerAppEnvironmentId: env.outputs.id
+    registry: registry
+    registryPassword: registryPassword
+    registryUsername: registryUsername
+    repositoryImage: dashboard_image
+    allowExternalIngress: true
+    allowInternalIngress: false
+    maxReplicas: 1
+    envVars : [
+      {
+        name: 'ASPNETCORE_ENVIRONMENT'
+        value: 'Development'
+      }
+      {
+        name: 'ORLEANS_AZURE_STORAGE_CONNECTION_STRING'
+        value: format('DefaultEndpointsProtocol=https;AccountName=${storage.outputs.storageName};AccountKey=${storage.outputs.accountKey};EndpointSuffix=core.windows.net')
+      }
+    ]
+  }
+}

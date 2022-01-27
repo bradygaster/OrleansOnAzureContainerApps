@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseOrleans(siloBuilder =>
 {
-    var storageConnectionString = builder.Configuration.GetValue<string>(EnvironentVariableKeys.AzureStorageConnectionString);
+    var storageConnectionString = builder.Configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString);
     siloBuilder.HostSiloInAzure(builder.Configuration);
     siloBuilder.AddAzureTableGrainStorage(name: "visitorsStore", options => options.ConnectionString = storageConnectionString);
     siloBuilder.AddAzureTableGrainStorage(name: "activeVisitorsStore", options => options.ConnectionString = storageConnectionString);
