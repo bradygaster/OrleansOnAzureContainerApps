@@ -7,8 +7,8 @@ namespace Orleans.Hosting
     {
         public override void Build(ISiloBuilder siloBuilder, IConfiguration configuration)
         {
-            var clusterId = configuration.GetValue<string>(EnvironentVariableKeys.OrleansClusterName);
-            var serviceId = configuration.GetValue<string>(EnvironentVariableKeys.OrleansServiceName);
+            var clusterId = configuration.GetValue<string>(EnvironmentVariables.OrleansClusterName);
+            var serviceId = configuration.GetValue<string>(EnvironmentVariables.OrleansServiceName);
 
             siloBuilder.Configure<ClusterOptions>(clusterOptions =>
             {

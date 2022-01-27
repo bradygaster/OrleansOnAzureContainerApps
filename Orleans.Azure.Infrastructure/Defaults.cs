@@ -15,7 +15,7 @@ namespace Orleans.Hosting
         public static int GatewayPort { get; } = 30000;
     }
 
-    public static class EnvironentVariableKeys
+    public static class EnvironmentVariables
     {
         public static string ApplicationInsightsInstrumentationKey { get; } = "APPINSIGHTS_INSTRUMENTATIONKEY";
         public static string OrleansClusterName { get; } = "ORLEANS_CLUSTER_ID";

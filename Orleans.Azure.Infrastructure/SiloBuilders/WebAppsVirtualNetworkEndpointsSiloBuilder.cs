@@ -7,13 +7,13 @@ public class WebAppsVirtualNetworkEndpointsSiloBuilder : AzureSiloBuilder
 {
     public override void Build(ISiloBuilder siloBuilder, IConfiguration configuration)
     {
-        if (configuration.GetValue<string>(EnvironentVariableKeys.WebAppsPrivateIPAddress) != null &&
-            configuration.GetValue<string>(EnvironentVariableKeys.WebAppsPrivatePorts) != null)
+        if (configuration.GetValue<string>(EnvironmentVariables.WebAppsPrivateIPAddress) != null &&
+            configuration.GetValue<string>(EnvironmentVariables.WebAppsPrivatePorts) != null)
         {
             // presume the app is running in Web Apps on App Service and start up
-            IPAddress endpointAddress = IPAddress.Parse(configuration.GetValue<string>(EnvironentVariableKeys.WebAppsPrivateIPAddress));
+            IPAddress endpointAddress = IPAddress.Parse(configuration.GetValue<string>(EnvironmentVariables.WebAppsPrivateIPAddress));
 
-            var strPorts = configuration.GetValue<string>(EnvironentVariableKeys.WebAppsPrivatePorts).Split(',');
+            var strPorts = configuration.GetValue<string>(EnvironmentVariables.WebAppsPrivatePorts).Split(',');
 
             if (strPorts.Length < 2) throw new Exception("Insufficient private ports configured.");
 

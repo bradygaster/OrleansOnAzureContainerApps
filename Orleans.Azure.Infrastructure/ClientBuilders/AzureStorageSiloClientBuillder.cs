@@ -6,9 +6,9 @@ namespace Orleans.Hosting
     {
         public override void Build(IClientBuilder clientBuilder, IConfiguration configuration)
         {
-            if (!string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.AzureStorageConnectionString)))
+            if (!string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString)))
             {
-                var azureStorageConnectionString = configuration.GetValue<string>(EnvironentVariableKeys.AzureStorageConnectionString);
+                var azureStorageConnectionString = configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString);
                 clientBuilder.UseAzureStorageClustering(options =>
                 {
                     options.ConnectionString = azureStorageConnectionString;

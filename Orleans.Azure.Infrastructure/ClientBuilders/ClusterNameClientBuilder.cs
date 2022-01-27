@@ -7,8 +7,8 @@ namespace Orleans.Hosting
     {
         public override void Build(IClientBuilder clientBuilder, IConfiguration configuration)
         {
-            var clusterId = string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.OrleansClusterName)) ? Defaults.ClusterName : configuration.GetValue<string>(EnvironentVariableKeys.OrleansClusterName);
-            var serviceId = string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.OrleansServiceName)) ? Defaults.ServiceName : configuration.GetValue<string>(EnvironentVariableKeys.OrleansServiceName);
+            var clusterId = string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.OrleansClusterName)) ? Defaults.ClusterName : configuration.GetValue<string>(EnvironmentVariables.OrleansClusterName);
+            var serviceId = string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.OrleansServiceName)) ? Defaults.ServiceName : configuration.GetValue<string>(EnvironmentVariables.OrleansServiceName);
 
             clientBuilder.Configure<ClusterOptions>(clusterOptions =>
             {

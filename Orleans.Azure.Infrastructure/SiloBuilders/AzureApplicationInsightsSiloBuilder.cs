@@ -6,11 +6,11 @@ namespace Orleans.Hosting
     {
         public override void Build(ISiloBuilder siloBuilder, IConfiguration configuration)
         {
-            if (!string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.ApplicationInsightsInstrumentationKey)))
+            if (!string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.ApplicationInsightsInstrumentationKey)))
             {
-                var azureMonitoringInstrumentationKey = configuration.GetValue<string>(EnvironentVariableKeys.ApplicationInsightsInstrumentationKey);
+                var azureMonitoringInstrumentationKey = configuration.GetValue<string>(EnvironmentVariables.ApplicationInsightsInstrumentationKey);
                 siloBuilder
-                    .AddApplicationInsightsTelemetryConsumer(configuration.GetValue<string>(EnvironentVariableKeys.ApplicationInsightsInstrumentationKey));
+                    .AddApplicationInsightsTelemetryConsumer(configuration.GetValue<string>(EnvironmentVariables.ApplicationInsightsInstrumentationKey));
             }
 
             base.Build(siloBuilder, configuration);

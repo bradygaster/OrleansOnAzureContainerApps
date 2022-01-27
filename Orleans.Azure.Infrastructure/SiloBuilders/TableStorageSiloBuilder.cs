@@ -8,9 +8,9 @@ namespace Orleans.Hosting
         {
             var azureStorageConnectionString = string.Empty;
 
-            if (!string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.AzureStorageConnectionString)))
+            if (!string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString)))
             {
-                azureStorageConnectionString = configuration.GetValue<string>(EnvironentVariableKeys.AzureStorageConnectionString);
+                azureStorageConnectionString = configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString);
             }
 
             if(!string.IsNullOrEmpty(azureStorageConnectionString))

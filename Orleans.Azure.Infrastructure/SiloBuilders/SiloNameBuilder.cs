@@ -8,9 +8,9 @@ namespace Orleans.Hosting
         public override void Build(ISiloBuilder siloBuilder, IConfiguration configuration)
         {
             var siloName = string.IsNullOrEmpty(
-                configuration.GetValue<string>(EnvironentVariableKeys.OrleansSiloName)) 
+                configuration.GetValue<string>(EnvironmentVariables.OrleansSiloName)) 
                     ? Defaults.SiloName 
-                    : configuration.GetValue<string>(EnvironentVariableKeys.OrleansSiloName);
+                    : configuration.GetValue<string>(EnvironmentVariables.OrleansSiloName);
             siloBuilder.Configure<SiloOptions>(options => options.SiloName = siloName);
 
             base.Build(siloBuilder, configuration);

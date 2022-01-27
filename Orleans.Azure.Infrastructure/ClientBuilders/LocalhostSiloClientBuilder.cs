@@ -12,7 +12,7 @@ namespace Orleans.Hosting
     {
         public override void Build(IClientBuilder clientBuilder, IConfiguration configuration)
         {
-            if (string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.AzureStorageConnectionString)))
+            if (string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString)))
             // check for other clustering configurations, and if none are found...)
             {
                 clientBuilder.UseLocalhostClustering();

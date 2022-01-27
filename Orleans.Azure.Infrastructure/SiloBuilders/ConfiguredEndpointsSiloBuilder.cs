@@ -17,17 +17,17 @@ namespace Orleans.Hosting
                 configures the silo's endpoints.
             */ 
 
-            if (string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.WebAppsPrivateIPAddress)) &&
-                string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.WebAppsPrivatePorts)))
+            if (string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.WebAppsPrivateIPAddress)) &&
+                string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.WebAppsPrivatePorts)))
             {
                 int siloPort = Defaults.SiloPort;
                 int gatewayPort = Defaults.GatewayPort;
 
-                if (!string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.OrleansSiloPort)) &&
-                    !string.IsNullOrEmpty(configuration.GetValue<string>(EnvironentVariableKeys.OrleansGatewayPort)))
+                if (!string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.OrleansSiloPort)) &&
+                    !string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.OrleansGatewayPort)))
                 {
-                    siloPort = configuration.GetValue<int>(EnvironentVariableKeys.OrleansSiloPort);
-                    gatewayPort = configuration.GetValue<int>(EnvironentVariableKeys.OrleansGatewayPort);
+                    siloPort = configuration.GetValue<int>(EnvironmentVariables.OrleansSiloPort);
+                    gatewayPort = configuration.GetValue<int>(EnvironmentVariables.OrleansGatewayPort);
                 }
 
                 siloBuilder.Configure<EndpointOptions>(options =>
