@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Grains", "Grains", "{D25454
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrleansOnContainerApps.Client", "OrleansOnContainerApps.Client\OrleansOnContainerApps.Client.csproj", "{40DAB6C7-D982-460F-9800-8004F1630424}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrleansOnContainerApps.Dashboard", "OrleansOnContainerApps.Dashboard\OrleansOnContainerApps.Dashboard.csproj", "{D6D42AB0-34C5-4B36-8682-A9EF8E29D9F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{40DAB6C7-D982-460F-9800-8004F1630424}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40DAB6C7-D982-460F-9800-8004F1630424}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40DAB6C7-D982-460F-9800-8004F1630424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D42AB0-34C5-4B36-8682-A9EF8E29D9F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D42AB0-34C5-4B36-8682-A9EF8E29D9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D42AB0-34C5-4B36-8682-A9EF8E29D9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D42AB0-34C5-4B36-8682-A9EF8E29D9F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{53C9A5D4-4EA7-4FC6-B427-CE401B8E9C72} = {6A33C7EB-4D3A-47D2-8BAF-097E33B9E5F1}
 		{84DEB9D2-F3B0-4B07-A41B-51AAD49DBE4B} = {D2545443-CB74-4EC1-BF17-3C648F7A6A0D}
 		{40DAB6C7-D982-460F-9800-8004F1630424} = {98AD6CA3-E7D4-4E0E-9A2A-F015195D6DE6}
+		{D6D42AB0-34C5-4B36-8682-A9EF8E29D9F3} = {98AD6CA3-E7D4-4E0E-9A2A-F015195D6DE6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A802C654-4B78-4840-8BA9-B589AD948951}
