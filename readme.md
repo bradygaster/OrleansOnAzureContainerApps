@@ -36,5 +36,3 @@ az extension add --source https://workerappscliextension.blob.core.windows.net/a
 The resultant application is an Azure Container Environment-hosted set of containers - the `silo`, and the `client` Razor Pages front-end.
 
 ![Topology diagram](static/topology.png)
-
-Internet traffic should not be able to directly access either of the back-end APIs as each of these containers is marked as "internal ingress only" during the deployment phase. Internet traffic hitting the `client.<your app>.<your region>.azurecontainerapps.io` URL should be proxied to the `client` container, which in turn makes outbound calls to the `silo`  within the Azure Container Apps Environment. 
