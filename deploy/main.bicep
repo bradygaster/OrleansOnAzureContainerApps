@@ -29,7 +29,7 @@ module silo 'container-app.bicep' = {
     registryPassword: registryPassword
     registryUsername: registryUsername
     repositoryImage: silo_image
-    allowExternalIngress: false
+    allowExternalIngress: true
     allowInternalIngress: true
     maxReplicas: 1
     envVars : [
