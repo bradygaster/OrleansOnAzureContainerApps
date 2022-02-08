@@ -8,6 +8,7 @@ param allowInternalIngress bool = false
 param targetIngressPort int = 80
 param registry string
 param registryUsername string
+param minReplicas int = 1
 param maxReplicas int = 10
 @secure()
 param registryPassword string
@@ -47,6 +48,7 @@ resource containerApp 'Microsoft.Web/containerApps@2021-03-01' = {
         }
       ]
       scale: {
+        minReplicas: minReplicas
         maxReplicas: maxReplicas
       }
     }
