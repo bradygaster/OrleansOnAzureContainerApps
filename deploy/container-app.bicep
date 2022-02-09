@@ -4,7 +4,6 @@ param containerAppEnvironmentId string
 param repositoryImage string
 param envVars array = []
 param allowExternalIngress bool = false
-param allowInternalIngress bool = false
 param targetIngressPort int = 80
 param registry string
 param registryUsername string
@@ -33,7 +32,6 @@ resource containerApp 'Microsoft.Web/containerApps@2021-03-01' = {
         }
       ]
       ingress: {
-        internal: allowInternalIngress
         external: allowExternalIngress
         targetPort: targetIngressPort
       }
