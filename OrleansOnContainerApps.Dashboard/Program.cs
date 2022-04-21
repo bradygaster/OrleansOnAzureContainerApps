@@ -10,8 +10,8 @@ builder.Host.UseOrleans(siloBuilder =>
     var storageConnectionString = builder.Configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString);
     siloBuilder
         .HostSiloInAzure(builder.Configuration)
-        .AddAzureTableGrainStorage(name: "visitorsStore", options => options.ConnectionString = storageConnectionString)
-        .AddAzureTableGrainStorage(name: "activeVisitorsStore", options => options.ConnectionString = storageConnectionString)
+        .AddAzureTableGrainStorage(name: "visitorsStore", options => options.ConfigureTableServiceClient(storageConnectionString))
+        .AddAzureTableGrainStorage(name: "activeVisitorsStore", options => options.ConfigureTableServiceClient(storageConnectionString))
         .ConfigureApplicationParts(applicationParts => applicationParts.AddApplicationPart(typeof(VisitorGrain).Assembly).WithReferences())
         .UseDashboard(dashboardOptions => dashboardOptions.HostSelf = false);
 });

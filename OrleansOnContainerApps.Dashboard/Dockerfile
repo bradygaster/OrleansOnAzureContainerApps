@@ -9,6 +9,9 @@ EXPOSE 30000
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["OrleansOnContainerApps.Dashboard/OrleansOnContainerApps.Dashboard.csproj", "OrleansOnContainerApps.Dashboard/"]
+COPY ["OrleansOnContainerApps.Grains/OrleansOnContainerApps.Grains.csproj", "OrleansOnContainerApps.Grains/"]
+COPY ["OrleansOnContainerApps.Abstractions/OrleansOnContainerApps.Abstractions.csproj", "OrleansOnContainerApps.Abstractions/"]
+COPY ["Orleans.Azure.Infrastructure/Orleans.Azure.Infrastructure.csproj", "Orleans.Azure.Infrastructure/"]
 RUN dotnet restore "OrleansOnContainerApps.Dashboard/OrleansOnContainerApps.Dashboard.csproj"
 COPY . .
 WORKDIR "/src/OrleansOnContainerApps.Dashboard"

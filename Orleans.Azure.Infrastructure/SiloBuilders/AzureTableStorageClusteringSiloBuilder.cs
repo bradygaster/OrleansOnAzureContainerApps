@@ -2,7 +2,7 @@
 
 namespace Orleans.Hosting
 {
-    public class TableStorageSiloBuilder : AzureSiloBuilder
+    public class AzureTableStorageClusteringSiloBuilder : AzureSiloBuilder
     {
         public override void Build(ISiloBuilder siloBuilder, IConfiguration configuration)
         {
@@ -16,10 +16,10 @@ namespace Orleans.Hosting
             if(!string.IsNullOrEmpty(azureStorageConnectionString))
             {
                 siloBuilder
-                    .UseAzureStorageClustering(storageOptions => storageOptions.ConnectionString = azureStorageConnectionString)
-                    .AddAzureTableGrainStorageAsDefault(tableStorageOptions =>
-                    {
-                        tableStorageOptions.ConnectionString = azureStorageConnectionString;
+                    .UseAzureStorageClustering(storageOptions => storageOptions.ConfigureTableServiceClient(azureStorageConnectionString))
+                    .AddAzureTableGrainStorageAsDefault(tableStorageOptions => 
+                     {
+                        tableStorageOptions.ConfigureTableServiceClient(azureStorageConnectionString);
                         tableStorageOptions.UseJson = true;
                     });
             }

@@ -7,11 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseOrleans(siloBuilder =>
 {
     var storageConnectionString = builder.Configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString);
-    siloBuilder.HostSiloInAzure(builder.Configuration);
-    siloBuilder.AddAzureTableGrainStorage(name: "visitorsStore", options => options.ConnectionString = storageConnectionString);
-    siloBuilder.AddAzureTableGrainStorage(name: "activeVisitorsStore", options => options.ConnectionString = storageConnectionString);
-    //siloBuilder.AddMemoryGrainStorage(name: "visitorsStore");
-    //siloBuilder.AddMemoryGrainStorage(name: "activeVisitorsStore");
+    siloBuilder
+        .HostSiloInAzure(builder.Configuration)
+        .AddAzureTableGrainStorage(name: "visitorsStore", options => options.ConfigureTableServiceClient(storageConnectionString))
+        .AddAzureTableGrainStorage(name: "activeVisitorsStore", options => options.ConfigureTableServiceClient(storageConnectionString));
 });
 
 var app = builder.Build();

@@ -29,6 +29,13 @@ $Env:acrUser=$(az acr credential show -n $Env:acrRegistry --query username -o ts
 $Env:acrPass=$(az acr credential show -n $Env:acrRegistry --query "passwords[0].value" -o tsv)
 
 Write-Host 'Creating Azure Container Apps Environment and deploying code to it ' -ForegroundColor Cyan
-az deployment group create --resource-group $resourceBaseName --template-file 'deploy/main.bicep' --parameters silo_image="$($Env:acrLoginServer)/silo:latest" --parameters dashboard_image="$($Env:acrLoginServer)/dashboard:latest" --parameters client_image="$($Env:acrLoginServer)/client:latest" --parameters registry=$Env:acrLoginServer --parameters registryUsername=$Env:acrUser --parameters registryPassword=$Env:acrPass
+
+az deployment group create --resource-group $resourceBaseName --template-file 'deploy/main.bicep' `
+--parameters silo_image="$($Env:acrLoginServer)/silo:latest" `
+--parameters dashboard_image="$($Env:acrLoginServer)/dashboard:latest" `
+--parameters client_image="$($Env:acrLoginServer)/client:latest" `
+--parameters registry=$Env:acrLoginServer `
+--parameters registryUsername=$Env:acrUser `
+--parameters registryPassword=$Env:acrPass
 
 Write-Host 'Environment deployed.' -ForegroundColor Cyan

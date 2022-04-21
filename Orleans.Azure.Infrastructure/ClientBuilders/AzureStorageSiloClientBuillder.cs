@@ -8,11 +8,7 @@ namespace Orleans.Hosting
         {
             if (!string.IsNullOrEmpty(configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString)))
             {
-                var azureStorageConnectionString = configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString);
-                clientBuilder.UseAzureStorageClustering(options =>
-                {
-                    options.ConnectionString = azureStorageConnectionString;
-                });
+                clientBuilder.UseAzureStorageClustering(options => options.ConfigureTableServiceClient(configuration.GetValue<string>(EnvironmentVariables.AzureStorageConnectionString)));
             }
 
             base.Build(clientBuilder, configuration);

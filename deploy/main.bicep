@@ -23,6 +23,7 @@ module storage 'storage.bicep' = {
 module silo 'container-app.bicep' = {
   name: 'silo'
   params: {
+    location: location
     name: 'silo'
     containerAppEnvironmentId: env.outputs.id
     registry: registry
@@ -47,6 +48,7 @@ module silo 'container-app.bicep' = {
 module client 'container-app.bicep' = {
   name: 'client'
   params: {
+    location: location
     name: 'client'
     containerAppEnvironmentId: env.outputs.id
     registry: registry
@@ -71,6 +73,7 @@ module client 'container-app.bicep' = {
 module dashboard 'container-app.bicep' = {
   name: 'dashboard'
   params: {
+    location: location
     name: 'dashboard'
     containerAppEnvironmentId: env.outputs.id
     registry: registry

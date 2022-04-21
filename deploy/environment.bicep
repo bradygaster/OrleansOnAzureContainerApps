@@ -15,7 +15,7 @@ resource logs 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
   })
 }
 
-resource appInsightsComponents 'Microsoft.Insights/components@2020-02-02' = {
+resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   name: '${baseName}ai'
   location: location
   kind: 'web'
@@ -25,12 +25,11 @@ resource appInsightsComponents 'Microsoft.Insights/components@2020-02-02' = {
   }
 }
 
-resource env 'Microsoft.Web/kubeEnvironments@2021-02-01' = {
+resource env 'Microsoft.App/managedEnvironments@2022-01-01-preview' = {
   name: '${baseName}env'
   location: location
   properties: {
-    type: 'managed'
-    internalLoadBalancerEnabled: false
+    daprAIInstrumentationKey:appInsights.properties.InstrumentationKey
     appLogsConfiguration: {
       destination: 'log-analytics'
       logAnalyticsConfiguration: {

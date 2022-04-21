@@ -7,6 +7,9 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["OrleansOnContainerApps.Client/OrleansOnContainerApps.Client.csproj", "OrleansOnContainerApps.Client/"]
+COPY ["OrleansOnContainerApps.Grains/OrleansOnContainerApps.Grains.csproj", "OrleansOnContainerApps.Grains/"]
+COPY ["OrleansOnContainerApps.Abstractions/OrleansOnContainerApps.Abstractions.csproj", "OrleansOnContainerApps.Abstractions/"]
+COPY ["Orleans.Azure.Infrastructure/Orleans.Azure.Infrastructure.csproj", "Orleans.Azure.Infrastructure/"]
 RUN dotnet restore "OrleansOnContainerApps.Client/OrleansOnContainerApps.Client.csproj"
 COPY . .
 WORKDIR "/src/OrleansOnContainerApps.Client"
